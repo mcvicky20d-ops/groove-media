@@ -3,8 +3,8 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 /**
- * Brand logo — renders the crisp vector mark (/public/logo.svg) so the
- * white wordmark stays sharp at every size. Sits on the dark header/footer.
+ * Brand logo — the owner-supplied artwork at /public/logo.png.
+ * Transparent PNG; renders on the dark header & footer.
  */
 export default function Logo({
   className = "",
@@ -20,13 +20,13 @@ export default function Logo({
       className={`group inline-flex items-center ${className}`}
     >
       <Image
-        src="/logo.svg"
+        src="/logo.png"
         alt={`${site.legalName} logo`}
-        width={560}
-        height={560}
+        width={8001}
+        height={8001}
         priority
-        sizes="(max-width: 640px) 64px, (max-width: 1024px) 80px, 96px"
-        className="h-16 w-16 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_10px_22px_rgba(240,187,36,0.35)] sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+        sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 112px"
+        className="h-20 w-20 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_10px_22px_rgba(240,187,36,0.35)] sm:h-24 sm:w-24 lg:h-28 lg:w-28"
       />
     </Link>
   );
