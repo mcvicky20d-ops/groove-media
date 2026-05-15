@@ -11,8 +11,8 @@ export default function Footer() {
         <div className="flex flex-col gap-5">
           <Logo />
           <p className="max-w-xs text-sm leading-relaxed text-cream/60">
-            A Chennai production house turning weddings, brands and events into
-            films worth watching again and again.
+            A Chennai film &amp; visual production company — advertising,
+            branded content and campaign films, plus a select wedding vertical.
           </p>
           <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm">
             <Star size={16} className="fill-gold-300 text-gold-300" />

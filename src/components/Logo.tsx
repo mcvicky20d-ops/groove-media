@@ -15,26 +15,31 @@ export default function Logo({
       aria-label={`${site.name} — home`}
       className="group flex items-center gap-3"
     >
-      <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold-400 shadow-[0_8px_24px_-8px_rgba(240,187,36,0.6)]">
-        {/* Film-reel inspired mark */}
+      <span className="relative inline-flex h-11 w-11 items-center justify-center">
+        {/* Tilted gold film-strip mark — echoes the brand logo */}
         <svg
           viewBox="0 0 48 48"
-          className="h-7 w-7 text-forest-800 transition-transform duration-700 group-hover:rotate-180"
-          fill="none"
+          className="h-10 w-10 transition-transform duration-500 group-hover:-translate-y-0.5"
           aria-hidden="true"
         >
-          <circle
-            cx="24"
-            cy="24"
-            r="20"
-            stroke="currentColor"
+          <g
+            transform="rotate(-32 24 24)"
+            fill="none"
+            stroke="#f0bb24"
             strokeWidth="3"
-          />
-          <circle cx="24" cy="24" r="5" fill="currentColor" />
-          <circle cx="24" cy="9.5" r="3" fill="currentColor" />
-          <circle cx="24" cy="38.5" r="3" fill="currentColor" />
-          <circle cx="9.5" cy="24" r="3" fill="currentColor" />
-          <circle cx="38.5" cy="24" r="3" fill="currentColor" />
+          >
+            <rect x="6" y="15" width="36" height="18" rx="2.5" />
+            <g fill="#f0bb24" stroke="none">
+              <rect x="10" y="18.5" width="3.4" height="3.4" rx="0.6" />
+              <rect x="17" y="18.5" width="3.4" height="3.4" rx="0.6" />
+              <rect x="24" y="18.5" width="3.4" height="3.4" rx="0.6" />
+              <rect x="31" y="18.5" width="3.4" height="3.4" rx="0.6" />
+              <rect x="10" y="26" width="3.4" height="3.4" rx="0.6" />
+              <rect x="17" y="26" width="3.4" height="3.4" rx="0.6" />
+              <rect x="24" y="26" width="3.4" height="3.4" rx="0.6" />
+              <rect x="31" y="26" width="3.4" height="3.4" rx="0.6" />
+            </g>
+          </g>
         </svg>
       </span>
       <span className="flex flex-col leading-none">

@@ -13,9 +13,9 @@ import { services } from "@/lib/site";
 const corp = services.find((s) => s.slug === "corporate")!;
 
 export const metadata: Metadata = {
-  title: "Corporate Videos & Ad Film Production in Chennai",
+  title: "Advertising & Brand Films in Chennai",
   description:
-    "High-impact brand films, performance ad creatives and corporate video production in Chennai. The Groove Media handles concept to delivery — built to convert.",
+    "Advertising films, brand campaigns and commercial content in Chennai. The Groove Media works with brands and agencies from concept to delivery.",
 };
 
 const offerings = [
@@ -67,9 +67,9 @@ export default function CorporatePage() {
   return (
     <>
       <PageHero
-        eyebrow="Corporate & Ad Films"
-        title="Video that moves your brand forward"
-        subtitle="Strategy-led brand films and performance ads — produced end to end by a crew that understands business outcomes, not just beautiful shots."
+        eyebrow="Advertising & Brand Films"
+        title="Films that move your brand forward"
+        subtitle="Advertising films, brand campaigns and commercial content — produced end to end with brands, agencies and creative teams. Clear, cinematic, built for modern audiences."
         image="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80"
       />
 

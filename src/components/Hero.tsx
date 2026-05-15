@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play, Star } from "lucide-react";
 import { site } from "@/lib/site";
 
-const words = ["Weddings.", "Brands.", "Events.", "Stories."];
+const words = ["brands.", "people.", "ideas.", "campaigns."];
 
 export default function Hero() {
   return (
@@ -47,7 +47,7 @@ export default function Hero() {
             className="eyebrow"
           >
             <span className="h-px w-8 bg-gold-400" />
-            Production House · {site.city}
+            Film &amp; Visual Production · {site.city}
           </motion.span>
 
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.02] text-cream sm:text-6xl lg:text-7xl">
@@ -57,17 +57,9 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="block"
             >
-              We turn moments
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="block"
-            >
-              into{" "}
+              We produce{" "}
               <span className="relative inline-block text-gold-300">
-                cinema
+                films
                 <motion.span
                   className="absolute -bottom-2 left-0 h-1 rounded-full bg-gold-400"
                   initial={{ width: 0 }}
@@ -75,9 +67,10 @@ export default function Hero() {
                   transition={{ duration: 0.9, delay: 0.9 }}
                 />
               </span>
+              .
             </motion.span>
             <span className="mt-3 flex h-[1.15em] items-center overflow-hidden font-display text-3xl text-cream/80 sm:text-4xl">
-              <span className="mr-3 text-cream/50">for</span>
+              <span className="mr-3 text-cream/50">For</span>
               <span className="relative inline-grid">
                 {words.map((w, i) => (
                   <motion.span
@@ -109,9 +102,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-8 max-w-xl text-base leading-relaxed text-cream/70 sm:text-lg"
           >
-            Cinematic South Indian wedding films, scroll-stopping brand & ad
-            videos, and full-scale event coverage — produced end to end by a
-            Chennai crew obsessed with the craft.
+            The Groove Media is a film and visual production company based in
+            Chennai. We work across advertising, branded content and campaign
+            films — creating visuals that are clear, cinematic and built for
+            modern audiences.
           </motion.p>
 
           <motion.div
@@ -144,9 +138,8 @@ export default function Hero() {
               ))}
             </div>
             <span>
-              Rated{" "}
-              <strong className="text-cream">{site.rating.value}</strong> by{" "}
-              {site.rating.count} clients across {site.city}
+              <strong className="text-cream">{site.rating.value}</strong> rated
+              · trusted by {site.rating.count} brands &amp; clients
             </span>
           </motion.div>
         </div>
@@ -176,8 +169,8 @@ export default function Hero() {
               <Play size={18} className="fill-forest-900" />
             </span>
             <div>
-              <p className="text-xl font-bold">450+</p>
-              <p className="text-xs text-cream/60">Films delivered</p>
+              <p className="text-xl font-bold">100+</p>
+              <p className="text-xs text-cream/60">Films &amp; campaigns</p>
             </div>
           </motion.div>
         </motion.div>

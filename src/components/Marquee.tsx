@@ -1,12 +1,12 @@
 const items = [
-  "Cinematic Wedding Films",
-  "Brand & Ad Production",
-  "Event Coverage",
-  "Candid Photography",
-  "Drone Cinematography",
-  "Same-Day Edits",
-  "Pre-Wedding Shoots",
-  "Live Streaming",
+  "Advertising Films",
+  "Brand Campaigns",
+  "Commercial Photography",
+  "Digital Content",
+  "Creative Direction",
+  "Cinematography",
+  "Post Production",
+  "Wedding Vertical",
 ];
 
 export default function Marquee() {

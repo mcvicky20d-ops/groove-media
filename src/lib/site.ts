@@ -1,16 +1,17 @@
 /**
  * Single source of truth for business details.
- *
- * NOTE FOR THE OWNER: The phone / email / WhatsApp values below are
- * PLACEHOLDERS. Instagram and Google Business links were not machine-readable,
- * so swap the marked values for your real contact details and the whole site
- * (header, footer, contact page, WhatsApp button, schema.org) updates at once.
+ * Edit values here and the whole site updates at once.
  */
 
 export const site = {
   name: "The Groove Media",
   tagline: "Production House",
   legalName: "The Groove Media Production House",
+  established: "2018",
+  lead: {
+    name: "Kodi",
+    role: "Creative Director / Director of Photography",
+  },
   email: "mediathegroove@gmail.com",
   phoneDisplay: "+91 78128 91696",
   phoneE164: "+917812891696",
@@ -28,7 +29,7 @@ export const site = {
   },
   rating: {
     value: "5.0",
-    count: "120+",
+    count: "100+",
   },
 } as const;
 
@@ -44,12 +45,55 @@ export const mailtoLink = (subject: string, body: string) =>
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/corporate", label: "Advertising" },
   { href: "/weddings", label: "Weddings" },
-  { href: "/corporate", label: "Corporate & Ads" },
   { href: "/events", label: "Events" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Capability tags shown on Home / About ("What We Do"). */
+export const capabilities = [
+  "Advertising Films",
+  "Brand Campaigns",
+  "Commercial Photography",
+  "Digital Content Production",
+];
+
+/** End-to-end production pipeline. */
+export const production = [
+  {
+    title: "Creative Direction",
+    body: "Idea, narrative and visual language defined before a single frame is shot.",
+  },
+  {
+    title: "Production",
+    body: "Planning, crew, locations and logistics — managed in-house, end to end.",
+  },
+  {
+    title: "Cinematography",
+    body: "Cinematic camera and lighting built for modern, premium audiences.",
+  },
+  {
+    title: "Post Production",
+    body: "Edit, colour, sound and finishing that elevate the final film.",
+  },
+  {
+    title: "Campaign Content",
+    body: "Cutdowns, social-first edits and assets ready for every platform.",
+  },
+];
+
+/** Brands & groups Groove Media has produced work for. */
+export const clients = [
+  "ITC Hotels",
+  "Hilton",
+  "Phoenix Marketcity",
+  "Wrangler India",
+  "Myntra",
+  "NAC Jewellers",
+  "Crocs India",
+];
 
 export type Service = {
   slug: string;
@@ -63,56 +107,57 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "weddings",
-    title: "Wedding Films & Photography",
-    short: "South Indian wedding stories",
-    description:
-      "From the muhurtham and kasi yatra to the kalyana mandapam and the last goodbye — we capture every ritual, every tear and every dhol-driven celebration, crafted into a film you will relive for a lifetime.",
-    features: [
-      "Tamil, Telugu, Malayalam & Kannada weddings",
-      "Muhurtham, mandap & temple-wedding coverage",
-      "Candid & traditional South Indian photography",
-      "Nichayathartham & reception films",
-      "Pre-wedding & save-the-date shoots",
-      "Same-day edits, drone & multi-camera crew",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80",
-    accent: "gold",
-  },
-  {
     slug: "corporate",
-    title: "Corporate & Ad Films",
-    short: "Brand & ad video production",
+    title: "Advertising & Brand Films",
+    short: "Ads, campaigns & brand films",
     description:
-      "High-impact brand films, product ads and corporate content engineered to convert. We handle concept, script, shoot and post — end to end.",
+      "Advertising films, branded content and campaign films — clear, cinematic and built for modern audiences. We work with brands, agencies and creative teams from concept to delivery.",
     features: [
-      "Brand & corporate documentary films",
-      "Product & performance ad creatives",
-      "Founder / testimonial interviews",
-      "Social-first vertical video",
-      "Scripting, direction & post-production",
+      "Advertising & commercial films",
+      "Brand campaigns & launch films",
+      "Commercial & product photography",
+      "Social-first & digital content",
+      "Creative direction & scripting",
+      "End-to-end production & post",
     ],
     image:
       "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80",
+    accent: "gold",
+  },
+  {
+    slug: "weddings",
+    title: "Wedding Films",
+    short: "Select wedding vertical",
+    description:
+      "Through our dedicated vertical, we take on select wedding stories — approached with the same filmmaking process: natural moments, cinematic visuals and storytelling that lasts.",
+    features: [
+      "Cinematic wedding films",
+      "Candid & traditional photography",
+      "Pre-wedding & save-the-date shoots",
+      "South Indian & destination weddings",
+      "Same-day edits & highlight reels",
+      "Drone & multi-camera crew",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=80",
     accent: "forest",
   },
   {
     slug: "events",
-    title: "Events & Programs",
-    short: "Live event coverage",
+    title: "Events & Live Coverage",
+    short: "Launches & live shoots",
     description:
-      "Temple festivals, cultural programs, concerts, launches and conferences — covered with a multi-camera crew and delivered as crisp recap films and full-event archives.",
+      "Launches, brand activations, conferences and cultural programs — covered with a multi-camera crew and delivered as sharp recap films and campaign-ready content.",
     features: [
-      "Temple festivals & cultural programs",
-      "Multi-camera live event coverage",
-      "Concert & stage program films",
-      "Conference & product-launch recaps",
+      "Brand activations & launches",
+      "Multi-camera live coverage",
+      "Conference & program films",
+      "Stage & concert shoots",
       "Live streaming setup",
-      "Fast turnaround event reels",
+      "Fast-turnaround recap reels",
     ],
     image:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80",
     accent: "gold",
   },
 ];
@@ -126,45 +171,45 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
+    name: "Brand Marketing Lead",
+    role: "Retail & Fashion",
+    quote:
+      "The campaign film they produced raised the bar for us. Sharp creative direction, a calm crew and delivery exactly on schedule.",
+    rating: 5,
+  },
+  {
+    name: "Agency Producer",
+    role: "Creative Agency, Chennai",
+    quote:
+      "Groove Media is our go-to production partner. They get the brief, bring strong visual ideas and execute end to end without hand-holding.",
+    rating: 5,
+  },
+  {
+    name: "Hospitality Brand",
+    role: "Hotels & Lifestyle",
+    quote:
+      "Our brand film looked premium and felt true to us. The team handled concept to final cut with real clarity.",
+    rating: 5,
+  },
+  {
     name: "Aarthi & Vignesh",
     role: "Wedding · Chennai",
     quote:
-      "We cried watching our wedding film. They captured moments we didn't even know happened. Every frame felt like a movie — absolutely worth it.",
+      "They filmed our wedding like a film. Every frame felt cinematic — moments we didn't even know happened, captured beautifully.",
     rating: 5,
   },
   {
-    name: "Priya Raghavan",
-    role: "Marketing Head, FMCG Brand",
+    name: "Founder",
+    role: "Growing D2C Brand",
     quote:
-      "Our product ad they produced outperformed every previous campaign. Professional crew, sharp direction and delivery right on schedule.",
-    rating: 5,
-  },
-  {
-    name: "Karthik S.",
-    role: "Founder, Tech Startup",
-    quote:
-      "The brand film gave our pitch deck a whole new energy. Investors specifically mentioned it. Truly a production house, not just a camera team.",
-    rating: 5,
-  },
-  {
-    name: "Deepa & Surya",
-    role: "Wedding · Coimbatore",
-    quote:
-      "Travelled out of Chennai for our wedding without a single complaint. The candid photos are framed all over our home now.",
-    rating: 5,
-  },
-  {
-    name: "Rahul Menon",
-    role: "Event Director",
-    quote:
-      "They handled a 3-day conference with multiple stages flawlessly. The recap film had everyone sharing it across socials.",
+      "From idea to launch content, they made our brand look bigger than we are. Investors and customers both noticed.",
     rating: 5,
   },
 ];
 
 export const stats = [
-  { value: "8+", label: "Years behind the lens" },
-  { value: "450+", label: "Films delivered" },
-  { value: "300+", label: "Weddings covered" },
-  { value: "120+", label: "5-star reviews" },
+  { value: "2018", label: "Studio established" },
+  { value: "100+", label: "Branded films delivered" },
+  { value: "7+", label: "National brands" },
+  { value: "Chennai", label: "Production base" },
 ];
