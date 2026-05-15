@@ -1,22 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76" fill="none" role="img" aria-label="The Groove Media — Production House">
-  <!-- Gold film-strip emblem -->
-  <g transform="rotate(-28 38 38)">
-    <rect x="10" y="26" width="56" height="26" rx="4" fill="#f0bb24"/>
-    <g fill="#0f4530">
-      <rect x="15" y="30.5" width="5" height="5" rx="1"/>
-      <rect x="24" y="30.5" width="5" height="5" rx="1"/>
-      <rect x="33" y="30.5" width="5" height="5" rx="1"/>
-      <rect x="42" y="30.5" width="5" height="5" rx="1"/>
-      <rect x="51" y="30.5" width="5" height="5" rx="1"/>
-      <rect x="15" y="42.5" width="5" height="5" rx="1"/>
-      <rect x="24" y="42.5" width="5" height="5" rx="1"/>
-      <rect x="33" y="42.5" width="5" height="5" rx="1"/>
-      <rect x="42" y="42.5" width="5" height="5" rx="1"/>
-      <rect x="51" y="42.5" width="5" height="5" rx="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" fill="none" role="img" aria-label="The Groove Media — Production House">
+  <defs>
+    <linearGradient id="gmGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="0.45" stop-color="#e9b425"/>
+      <stop offset="1" stop-color="#9a6a10"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Gold film-strip swoosh (top strip + descending strip) -->
+  <g>
+    <g transform="rotate(-26 360 250)">
+      <rect x="250" y="206" width="240" height="74" rx="6" fill="url(#gmGold)"/>
+      <g fill="#0a0a0a">
+        <rect x="266" y="216" width="15" height="15" rx="2"/>
+        <rect x="298" y="216" width="15" height="15" rx="2"/>
+        <rect x="330" y="216" width="15" height="15" rx="2"/>
+        <rect x="362" y="216" width="15" height="15" rx="2"/>
+        <rect x="394" y="216" width="15" height="15" rx="2"/>
+        <rect x="426" y="216" width="15" height="15" rx="2"/>
+        <rect x="458" y="216" width="15" height="15" rx="2"/>
+        <rect x="266" y="255" width="15" height="15" rx="2"/>
+        <rect x="298" y="255" width="15" height="15" rx="2"/>
+        <rect x="330" y="255" width="15" height="15" rx="2"/>
+        <rect x="362" y="255" width="15" height="15" rx="2"/>
+        <rect x="394" y="255" width="15" height="15" rx="2"/>
+        <rect x="426" y="255" width="15" height="15" rx="2"/>
+        <rect x="458" y="255" width="15" height="15" rx="2"/>
+      </g>
+    </g>
+    <g transform="rotate(64 408 330)">
+      <rect x="320" y="300" width="176" height="64" rx="6" fill="url(#gmGold)"/>
+      <g fill="#0a0a0a">
+        <rect x="334" y="309" width="13" height="13" rx="2"/>
+        <rect x="362" y="309" width="13" height="13" rx="2"/>
+        <rect x="390" y="309" width="13" height="13" rx="2"/>
+        <rect x="418" y="309" width="13" height="13" rx="2"/>
+        <rect x="446" y="309" width="13" height="13" rx="2"/>
+        <rect x="334" y="342" width="13" height="13" rx="2"/>
+        <rect x="362" y="342" width="13" height="13" rx="2"/>
+        <rect x="390" y="342" width="13" height="13" rx="2"/>
+        <rect x="418" y="342" width="13" height="13" rx="2"/>
+        <rect x="446" y="342" width="13" height="13" rx="2"/>
+      </g>
     </g>
   </g>
 
-  <!-- Wordmark -->
-  <text x="84" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="-0.5" fill="#FAF7F0">the <tspan fill="#f7cd47">groove</tspan> media</text>
-  <text x="85" y="55" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="6" fill="#f0bb24">PRODUCTION HOUSE</text>
+  <!-- Stacked wordmark -->
+  <g fill="#FFFFFF" font-family="'Arial Narrow','Helvetica Neue Condensed',Oswald,Impact,sans-serif" font-weight="800" text-anchor="middle">
+    <text x="250" y="245" font-size="124">the</text>
+    <text x="250" y="358" font-size="124">groove</text>
+    <text x="250" y="471" font-size="124">media</text>
+  </g>
+  <text x="252" y="528" fill="#FFFFFF" font-family="'Arial Narrow','Helvetica Neue',Arial,sans-serif" font-size="31" font-weight="600" letter-spacing="13" text-anchor="middle">PRODUCTION HOUSE</text>
 </svg>

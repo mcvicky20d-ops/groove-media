@@ -22,11 +22,11 @@ export default function Logo({
       <Image
         src="/logo.svg"
         alt={`${site.legalName} logo`}
-        width={300}
-        height={76}
+        width={560}
+        height={560}
         priority
         unoptimized
-        className="h-10 w-auto transition-transform duration-500 group-hover:-translate-y-0.5 sm:h-11"
+        className="h-14 w-14 transition-transform duration-500 group-hover:-translate-y-0.5 sm:h-16 sm:w-16"
       />
     </Link>
   );
