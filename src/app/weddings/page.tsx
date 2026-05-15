@@ -76,9 +76,9 @@ export default function WeddingsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Wedding Films & Photography"
-        title="Your love story, shot like a film"
-        subtitle="From the nervous first look to the last sparkler — we capture the feeling, not just the footage, and craft it into something you'll watch for a lifetime."
+        eyebrow="South Indian Wedding Films & Photography"
+        title="Your wedding, shot like a film"
+        subtitle="From the kasi yatra and oonjal to the muhurtham knot and grand reception — we capture the rituals, the tears and the joy of South Indian weddings, and craft them into a film you'll watch for a lifetime."
         image="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1920&q=80"
       />
 
@@ -130,6 +130,59 @@ export default function WeddingsPage() {
             />
           </div>
         </Reveal>
+      </section>
+
+      <section className="relative overflow-hidden bg-forest-900 py-24">
+        <div className="grain pointer-events-none absolute inset-0 opacity-50" />
+        <div className="container-px relative">
+          <SectionHeading
+            eyebrow="Rooted in our traditions"
+            title="South Indian weddings, told the way they're felt"
+            subtitle="Tamil, Telugu, Malayalam or Kannada — every kalyanam has its own rhythm. We know the rituals, so the camera is always in the right place at the right moment."
+            light
+          />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                t: "Nichayathartham",
+                d: "The engagement promise — families, blessings and the first official smiles, captured warmly.",
+              },
+              {
+                t: "Kasi Yatra & Oonjal",
+                d: "The playful pretend-pilgrimage and the swing ceremony — full of laughter we love to film.",
+              },
+              {
+                t: "Muhurtham",
+                d: "The sacred knot, the mangalsutra and the homam glow — the heartbeat of the whole film.",
+              },
+              {
+                t: "Saptapadi & Rituals",
+                d: "Seven steps, sacred fire, nadaswaram in the air — every tradition, honoured on screen.",
+              },
+              {
+                t: "Reception",
+                d: "Lights, stage, family and that grand entry — your celebration in full cinematic colour.",
+              },
+              {
+                t: "Temple Weddings",
+                d: "Quiet, divine and intimate — temple ceremonies covered with respect and stillness.",
+              },
+            ].map((r, i) => (
+              <Reveal
+                key={r.t}
+                delay={(i % 3) * 0.1}
+                className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:border-gold-300/50"
+              >
+                <h3 className="font-display text-xl font-bold text-gold-300">
+                  {r.t}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-cream/65">
+                  {r.d}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="bg-cream py-24">

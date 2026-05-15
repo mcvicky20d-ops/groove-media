@@ -109,9 +109,14 @@ export default function Footer() {
         </p>
         <p>
           Developed by{" "}
-          <span className="font-semibold text-gold-300">
+          <a
+            href="https://r1digitalsolutions.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-gold-300 underline-offset-4 transition-colors hover:text-gold-200 hover:underline"
+          >
             r1digitalsolutions
-          </span>
+          </a>
         </p>
       </div>
     </footer>

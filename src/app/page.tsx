@@ -51,7 +51,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="What we do"
           title="Three crafts. One production house."
-          subtitle="Whether it's the most important day of your life or your brand's next big launch — we shoot it like cinema."
+          subtitle="From a South Indian kalyanam in Chennai to your brand's next big launch — we shoot every story like cinema."
         />
         <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (

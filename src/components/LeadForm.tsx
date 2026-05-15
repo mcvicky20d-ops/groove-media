@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Send } from "lucide-react";
-import { services, site, whatsappLink } from "@/lib/site";
+import { CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { mailtoLink, services, site, whatsappLink } from "@/lib/site";
 
 const initial = {
   name: "",
@@ -27,9 +27,8 @@ export default function LeadForm() {
     ) =>
       setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const lines = [
+  const buildBody = () =>
+    [
       `New enquiry for ${site.name}`,
       "",
       `Name: ${form.name}`,
@@ -43,7 +42,22 @@ export default function LeadForm() {
       .filter(Boolean)
       .join("\n");
 
-    window.open(whatsappLink(lines), "_blank", "noopener,noreferrer");
+  const formValid = () =>
+    Boolean(form.name && form.phone && form.service && form.message);
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = `New enquiry · ${form.service} · ${form.name}`;
+    window.location.href = mailtoLink(subject, buildBody());
+    setSent(true);
+  };
+
+  const sendWhatsApp = () => {
+    if (!formValid()) {
+      alert("Please fill in your name, phone, service and project details.");
+      return;
+    }
+    window.open(whatsappLink(buildBody()), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -59,14 +73,17 @@ export default function LeadForm() {
           Thank you, {form.name.split(" ")[0] || "there"}!
         </h3>
         <p className="max-w-sm text-sm text-forest-700/70">
-          Your enquiry is opening in WhatsApp. If it didn&apos;t, message us at{" "}
+          Your enquiry is opening in your email app, addressed to{" "}
+          <span className="font-semibold text-forest-800">{site.email}</span>.
+          Just hit send and we&apos;ll reply within a few hours. Prefer to
+          talk? Call us at{" "}
           <a
             href={`tel:${site.phoneE164}`}
             className="font-semibold text-forest-600 underline"
           >
             {site.phoneDisplay}
-          </a>{" "}
-          — we typically reply within a few hours.
+          </a>
+          .
         </p>
         <button
           type="button"
@@ -178,10 +195,27 @@ export default function LeadForm() {
       </div>
 
       <button type="submit" className="btn-primary mt-2 w-full">
-        Send enquiry <Send size={16} />
+        Send enquiry by email <Send size={16} />
       </button>
+
+      <div className="flex items-center gap-3">
+        <span className="h-px flex-1 bg-forest-100" />
+        <span className="text-xs font-medium uppercase tracking-wide text-forest-700/40">
+          or
+        </span>
+        <span className="h-px flex-1 bg-forest-100" />
+      </div>
+
+      <button
+        type="button"
+        onClick={sendWhatsApp}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#25D366] px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-[#1c9b4d] transition-colors hover:bg-[#25D366] hover:text-white"
+      >
+        <MessageCircle size={16} /> Send via WhatsApp
+      </button>
+
       <p className="text-center text-xs text-forest-700/50">
-        Opens WhatsApp with your details pre-filled. No spam, ever.
+        Email goes straight to {site.email}. No spam, ever.
       </p>
     </form>
   );

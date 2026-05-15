@@ -108,9 +108,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-8 max-w-xl text-base leading-relaxed text-cream/70 sm:text-lg"
           >
-            Cinematic wedding films, scroll-stopping brand & ad videos, and
-            full-scale event coverage — produced end to end by a Chennai crew
-            obsessed with the craft.
+            Cinematic South Indian wedding films, scroll-stopping brand & ad
+            videos, and full-scale event coverage — produced end to end by a
+            Chennai crew obsessed with the craft.
           </motion.p>
 
           <motion.div

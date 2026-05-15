@@ -11,13 +11,11 @@ export const site = {
   name: "The Groove Media",
   tagline: "Production House",
   legalName: "The Groove Media Production House",
-  // TODO(owner): replace with your public business email
-  email: "hello@thegroovemedia.in",
-  // TODO(owner): replace with your business phone (full intl format below)
-  phoneDisplay: "+91 98XXX XXXXX",
-  phoneE164: "+9198XXXXXXXX",
-  // TODO(owner): replace with your WhatsApp number (digits only, with country code)
-  whatsapp: "9198XXXXXXXX",
+  email: "mediathegroove@gmail.com",
+  phoneDisplay: "+91 78128 91696",
+  phoneE164: "+917812891696",
+  // WhatsApp number — digits only, with country code
+  whatsapp: "917812891696",
   city: "Chennai",
   region: "Tamil Nadu",
   country: "India",
@@ -38,6 +36,11 @@ export const whatsappLink = (message?: string) =>
   `https://wa.me/${site.whatsapp}${
     message ? `?text=${encodeURIComponent(message)}` : ""
   }`;
+
+export const mailtoLink = (subject: string, body: string) =>
+  `mailto:${site.email}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
 export const navLinks = [
   { href: "/", label: "Home" },
@@ -62,15 +65,16 @@ export const services: Service[] = [
   {
     slug: "weddings",
     title: "Wedding Films & Photography",
-    short: "Cinematic wedding stories",
+    short: "South Indian wedding stories",
     description:
-      "From the first look to the last dance, we capture the emotion, the laughter and the quiet in-between moments — crafted into a film you will relive for a lifetime.",
+      "From the muhurtham and kasi yatra to the kalyana mandapam and the last goodbye — we capture every ritual, every tear and every dhol-driven celebration, crafted into a film you will relive for a lifetime.",
     features: [
-      "Cinematic wedding films & teasers",
-      "Candid & traditional photography",
+      "Tamil, Telugu, Malayalam & Kannada weddings",
+      "Muhurtham, mandap & temple-wedding coverage",
+      "Candid & traditional South Indian photography",
+      "Nichayathartham & reception films",
       "Pre-wedding & save-the-date shoots",
-      "Same-day edits & highlight reels",
-      "Drone & multi-camera coverage",
+      "Same-day edits, drone & multi-camera crew",
     ],
     image:
       "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80",
@@ -98,11 +102,12 @@ export const services: Service[] = [
     title: "Events & Programs",
     short: "Live event coverage",
     description:
-      "Conferences, concerts, launches and cultural programs — covered with a multi-camera crew and delivered as crisp recap films and full-event archives.",
+      "Temple festivals, cultural programs, concerts, launches and conferences — covered with a multi-camera crew and delivered as crisp recap films and full-event archives.",
     features: [
+      "Temple festivals & cultural programs",
       "Multi-camera live event coverage",
       "Concert & stage program films",
-      "Conference & launch recaps",
+      "Conference & product-launch recaps",
       "Live streaming setup",
       "Fast turnaround event reels",
     ],
