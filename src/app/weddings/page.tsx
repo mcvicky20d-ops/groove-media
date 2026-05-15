@@ -47,16 +47,16 @@ const packages = [
 
 const gallery = [
   {
-    src: "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=900&q=80",
-    alt: "South Indian bride in traditional silk & gold jewellery",
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
+    alt: "Wedding couple portrait",
   },
   {
-    src: "https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&w=900&q=80",
-    alt: "Bride in bridal red and temple jewellery",
+    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80",
+    alt: "Couple at golden hour",
   },
   {
-    src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80",
-    alt: "Couple at the wedding mandap",
+    src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80",
+    alt: "Bride getting ready",
   },
   {
     src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80",
@@ -67,20 +67,8 @@ const gallery = [
     alt: "Ceremony rituals and joined hands",
   },
   {
-    src: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=900&q=80",
-    alt: "Haldi & marigold celebration",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80",
-    alt: "Bride getting ready",
-  },
-  {
     src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=80",
     alt: "Wedding rings & floral detail",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80",
-    alt: "The ceremony moment",
   },
 ];
 

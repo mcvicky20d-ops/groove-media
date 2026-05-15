@@ -69,7 +69,7 @@ export default function Hero() {
               </span>
               .
             </motion.span>
-            <span className="mt-3 flex h-[1.15em] items-center overflow-hidden font-display text-3xl text-cream/80 sm:text-4xl">
+            <span className="mt-4 flex h-[1.5em] items-center overflow-hidden pb-[0.12em] font-display text-3xl leading-none text-cream/80 sm:text-4xl">
               <span className="mr-3 text-cream/50">For</span>
               <span className="relative inline-grid">
                 {words.map((w, i) => (

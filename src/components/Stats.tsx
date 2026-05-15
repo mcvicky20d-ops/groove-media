@@ -16,7 +16,7 @@ export default function Stats() {
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="text-center"
           >
-            <p className="font-display text-4xl font-bold text-gold-300 sm:text-5xl">
+            <p className="font-display text-3xl font-bold leading-tight text-gold-300 sm:text-4xl lg:text-5xl">
               {s.value}
             </p>
             <p className="mt-2 text-sm text-cream/60">{s.label}</p>

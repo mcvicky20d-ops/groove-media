@@ -46,20 +46,20 @@ const gallery = [
     alt: "Event crowd",
   },
   {
-    src: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80",
-    alt: "Conference stage",
+    src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80",
+    alt: "Multi-camera event crew",
   },
   {
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80",
-    alt: "Conference audience",
+    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80",
+    alt: "Stage interview coverage",
   },
   {
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
-    alt: "Stage performance",
+    src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80",
+    alt: "Stage lighting setup",
   },
   {
-    src: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=900&q=80",
-    alt: "Product launch event",
+    src: "https://images.unsplash.com/photo-1579632652768-6cb9dcf85912?auto=format&fit=crop&w=900&q=80",
+    alt: "Director monitoring the shoot",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function EventsPage() {
               className="aspect-[4/3] rounded-3xl bg-cover bg-center"
               style={{
                 backgroundImage:
-                  "url(https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1000&q=80)",
+                  "url(https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=80)",
               }}
             />
           </Reveal>
