@@ -8,15 +8,25 @@ import Gallery from "@/components/Gallery";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 import { services } from "@/lib/site";
 
 const corp = services.find((s) => s.slug === "corporate")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Advertising & Brand Films in Chennai",
   description:
     "Advertising films, brand campaigns and commercial content in Chennai. The Groove Media works with brands and agencies from concept to delivery.",
-};
+  path: "/corporate",
+  keywords: [
+    "ad film makers Chennai",
+    "advertising film production Chennai",
+    "corporate video production Chennai",
+    "brand campaign films",
+    "commercial video Chennai",
+  ],
+});
 
 const offerings = [
   {
@@ -66,6 +76,20 @@ const gallery = [
 export default function CorporatePage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Advertising", path: "/corporate" },
+          ]),
+          serviceJsonLd({
+            name: "Advertising & Brand Films",
+            description:
+              "Advertising films, brand campaigns and commercial content in Chennai, produced end to end.",
+            path: "/corporate",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Advertising & Brand Films"
         title="Films that move your brand forward"

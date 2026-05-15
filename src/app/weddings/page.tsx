@@ -8,15 +8,25 @@ import Gallery from "@/components/Gallery";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 import { services } from "@/lib/site";
 
 const wedding = services.find((s) => s.slug === "weddings")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Wedding Films & Photography in Chennai",
   description:
     "Cinematic wedding films, candid photography, pre-wedding and same-day edits in Chennai. The Groove Media turns your big day into a film you'll relive forever.",
-};
+  path: "/weddings",
+  keywords: [
+    "wedding videography Chennai",
+    "cinematic wedding films Chennai",
+    "South Indian wedding photography",
+    "candid wedding photographer Chennai",
+    "pre-wedding shoot Chennai",
+  ],
+});
 
 const packages = [
   {
@@ -75,6 +85,20 @@ const gallery = [
 export default function WeddingsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Weddings", path: "/weddings" },
+          ]),
+          serviceJsonLd({
+            name: "Wedding Films & Photography",
+            description:
+              "Cinematic wedding films, candid photography, pre-wedding and same-day edits in Chennai.",
+            path: "/weddings",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="South Indian Wedding Films & Photography"
         title="Your wedding, shot like a film"

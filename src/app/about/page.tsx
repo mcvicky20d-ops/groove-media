@@ -7,13 +7,21 @@ import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
 import Clients from "@/components/Clients";
 import CTA from "@/components/CTA";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { capabilities, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About the Studio",
   description:
     "The Groove Media is an independent film production company established in 2018 in Chennai, working across advertising, commercial filmmaking and brand storytelling.",
-};
+  path: "/about",
+  keywords: [
+    "about The Groove Media",
+    "film production company Chennai",
+    "video production studio Chennai",
+  ],
+});
 
 const focus = [
   {
@@ -36,6 +44,12 @@ const focus = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <PageHero
         eyebrow={`Film & Visual Production · ${site.city}`}
         title="The Groove Media"

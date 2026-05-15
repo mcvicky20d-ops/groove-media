@@ -70,6 +70,46 @@ body {
     );
     background-size: 4px 4px;
   }
+
+  /* Elevated 3D surface — light theme (cream sections) */
+  .card-3d {
+    @apply relative rounded-2xl border border-white/60 transition-all duration-300;
+    background: linear-gradient(160deg, #ffffff 0%, #f3eee1 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 18px 30px -16px rgba(12, 56, 38, 0.28),
+      0 6px 12px -8px rgba(12, 56, 38, 0.18);
+  }
+  .card-3d:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 28px 46px -18px rgba(12, 56, 38, 0.4),
+      0 10px 18px -10px rgba(240, 187, 36, 0.25);
+  }
+
+  /* Elevated 3D surface — dark theme (forest sections) */
+  .card-3d-dark {
+    @apply relative rounded-2xl border border-white/10 transition-all duration-300;
+    background: linear-gradient(160deg, #11432f 0%, #0a2418 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 22px 40px -20px rgba(0, 0, 0, 0.65),
+      0 8px 16px -10px rgba(0, 0, 0, 0.5);
+  }
+  .card-3d-dark:hover {
+    transform: translateY(-6px);
+    border-color: rgba(247, 205, 71, 0.4);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.08) inset,
+      0 30px 54px -20px rgba(0, 0, 0, 0.7),
+      0 10px 22px -10px rgba(240, 187, 36, 0.3);
+  }
+
+  /* Perspective wrapper for subtle 3D depth on grids */
+  .scene-3d {
+    perspective: 1400px;
+  }
 }
 
 /* Respect users who prefer reduced motion */

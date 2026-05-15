@@ -10,13 +10,21 @@ import {
 } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import Reveal from "@/components/Reveal";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { site, whatsappLink } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact & Free Quote",
   description:
     "Enquire about wedding, corporate, ad or event videography & photography in Chennai. Get a free quote from The Groove Media — we usually reply within hours.",
-};
+  path: "/contact",
+  keywords: [
+    "contact The Groove Media",
+    "video production quote Chennai",
+    "hire videographer Chennai",
+  ],
+});
 
 export default function ContactPage() {
   const contacts = [
@@ -50,6 +58,12 @@ export default function ContactPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <section className="relative overflow-hidden bg-forest-900 pb-16 pt-36">
         <div className="grain absolute inset-0 opacity-50" />
         <div className="container-px relative text-center">

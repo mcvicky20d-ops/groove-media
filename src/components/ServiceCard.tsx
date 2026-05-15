@@ -19,7 +19,8 @@ export default function ServiceCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.65, delay: index * 0.12 }}
-      className="group relative overflow-hidden rounded-3xl bg-forest-900"
+      whileHover={{ y: -8 }}
+      className="group relative overflow-hidden rounded-3xl bg-forest-900 shadow-[0_22px_44px_-20px_rgba(0,0,0,0.7),0_8px_18px_-10px_rgba(0,0,0,0.45)] ring-1 ring-white/10 transition-shadow duration-300 hover:shadow-[0_34px_60px_-22px_rgba(0,0,0,0.78),0_14px_26px_-12px_rgba(240,187,36,0.28)] hover:ring-gold-300/30"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image

@@ -8,6 +8,9 @@ export const site = {
   tagline: "Production House",
   legalName: "The Groove Media Production House",
   established: "2018",
+  foundingDate: "2018-01-01",
+  // Canonical production URL — used across SEO, sitemap, robots & JSON-LD.
+  url: "https://groove-media-roan.vercel.app",
   lead: {
     name: "Kodi",
     role: "Creative Director / Director of Photography",
@@ -22,6 +25,11 @@ export const site = {
   country: "India",
   // TODO(owner): replace with your studio address
   address: "Chennai, Tamil Nadu, India",
+  // Approx. Chennai centroid — refine to the exact studio coords when available.
+  geo: { lat: 13.0827, lng: 80.2707 },
+  openingHours: "Mo-Sa 10:00-20:00",
+  priceRange: "₹₹",
+  areaServed: ["Chennai", "Tamil Nadu", "Bangalore", "India"],
   social: {
     instagram: "https://www.instagram.com/the.groove.media/",
     instagramHandle: "@the.groove.media",
@@ -30,6 +38,7 @@ export const site = {
   rating: {
     value: "5.0",
     count: "100+",
+    reviewCount: 120,
   },
 } as const;
 

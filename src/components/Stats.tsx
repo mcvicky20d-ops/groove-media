@@ -6,7 +6,7 @@ import { stats } from "@/lib/site";
 export default function Stats() {
   return (
     <section className="bg-forest-800">
-      <div className="container-px grid grid-cols-2 gap-8 py-14 lg:grid-cols-4">
+      <div className="scene-3d container-px grid grid-cols-2 gap-4 py-14 sm:gap-5 lg:grid-cols-4">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -14,7 +14,8 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="text-center"
+            whileHover={{ y: -5 }}
+            className="card-3d-dark px-4 py-8 text-center"
           >
             <p className="font-display text-3xl font-bold leading-tight text-gold-300 sm:text-4xl lg:text-5xl">
               {s.value}

@@ -4,7 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import { organizationJsonLd, SITE_URL } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,34 +24,66 @@ const description =
   "The Groove Media is a Chennai-based production house crafting cinematic wedding films, corporate & ad videos, event coverage and photography. Get a free quote today.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thegroovemedia.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${site.name} — Wedding, Corporate & Ad Film Production in Chennai`,
     template: `%s · ${site.name}`,
   },
   description,
+  applicationName: site.name,
+  authors: [{ name: site.legalName, url: SITE_URL }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  category: "Film & Video Production",
+  formatDetection: { email: false, address: false, telephone: false },
+  alternates: { canonical: "/" },
   keywords: [
+    "production house Chennai",
+    "video production company Chennai",
     "wedding videography Chennai",
     "wedding photography Chennai",
     "corporate video production Chennai",
     "ad film makers Chennai",
+    "advertising film production Chennai",
     "event videography Chennai",
     "cinematic wedding films",
+    "brand campaign films",
     "The Groove Media",
   ],
   openGraph: {
     title: `${site.name} — Cinematic Films & Photography in Chennai`,
     description,
+    url: SITE_URL,
     type: "website",
     locale: "en_IN",
     siteName: site.name,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${site.legalName} — ${site.city}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — Cinematic Films & Photography`,
     description,
+    images: ["/opengraph-image"],
   },
-  robots: { index: true, follow: true },
+  manifest: "/manifest.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -63,37 +97,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: site.legalName,
-    description,
-    image: "/og.svg",
-    "@id": "https://thegroovemedia.vercel.app",
-    url: "https://thegroovemedia.vercel.app",
-    telephone: site.phoneE164,
-    email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: site.city,
-      addressRegion: site.region,
-      addressCountry: "IN",
-    },
-    sameAs: [site.social.instagram, site.social.google],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating.value,
-      reviewCount: 120,
-    },
-  };
-
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationJsonLd()} />
         <Navbar />
         <main>{children}</main>
         <Footer />

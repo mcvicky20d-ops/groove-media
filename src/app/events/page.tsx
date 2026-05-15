@@ -8,15 +8,25 @@ import Gallery from "@/components/Gallery";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 import { services } from "@/lib/site";
 
 const ev = services.find((s) => s.slug === "events")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Event & Program Videography in Chennai",
   description:
     "Multi-camera event coverage, concert and stage program films, conference recaps and live streaming in Chennai by The Groove Media.",
-};
+  path: "/events",
+  keywords: [
+    "event videography Chennai",
+    "live event coverage Chennai",
+    "conference video Chennai",
+    "concert videographer Chennai",
+    "live streaming Chennai",
+  ],
+});
 
 const formats = [
   {
@@ -66,6 +76,20 @@ const gallery = [
 export default function EventsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+          ]),
+          serviceJsonLd({
+            name: "Events & Live Coverage",
+            description:
+              "Multi-camera event coverage, stage programs, conference recaps and live streaming in Chennai.",
+            path: "/events",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Events & Programs"
         title="Every moment, every angle, on time"

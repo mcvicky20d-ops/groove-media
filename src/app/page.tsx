@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Stats from "@/components/Stats";
 import Marquee from "@/components/Marquee";
 import ServiceCard from "@/components/ServiceCard";
@@ -40,9 +43,16 @@ const featured = [
   },
 ];
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([{ name: "Home", path: "/" }])}
+      />
       <Hero />
       <Stats />
       <Marquee />
