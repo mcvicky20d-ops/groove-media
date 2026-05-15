@@ -15,16 +15,16 @@ import { services } from "@/lib/site";
 
 const featured = [
   {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80",
-    alt: "Cinematic wedding couple portrait",
+    src: "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=900&q=80",
+    alt: "South Indian bride in traditional silk & gold",
   },
   {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80",
-    alt: "Wedding ceremony moment",
+    src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80",
+    alt: "Couple at the wedding mandap",
   },
   {
-    src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=80",
-    alt: "Corporate film production setup",
+    src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=80",
+    alt: "Wedding ceremony rituals",
   },
   {
     src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80",
@@ -32,7 +32,7 @@ const featured = [
   },
   {
     src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80",
-    alt: "Bride candid portrait",
+    alt: "Candid bride portrait",
   },
   {
     src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80",

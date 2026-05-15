@@ -82,7 +82,8 @@ export default function Hero() {
                 {words.map((w, i) => (
                   <motion.span
                     key={w}
-                    className="col-start-1 row-start-1 text-gold-300"
+                    className="col-start-1 row-start-1 whitespace-nowrap text-gold-300"
+                    initial={{ opacity: 0 }}
                     animate={{
                       opacity: [0, 1, 1, 0],
                       y: ["100%", "0%", "0%", "-100%"],
