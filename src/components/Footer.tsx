@@ -107,7 +107,12 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} {site.legalName}. All rights reserved.
         </p>
-        <p>Crafted with cinematic love in Chennai.</p>
+        <p>
+          Developed by{" "}
+          <span className="font-semibold text-gold-300">
+            r1digitalsolutions
+          </span>
+        </p>
       </div>
     </footer>
   );
