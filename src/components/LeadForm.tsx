@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, MessageCircle, Send } from "lucide-react";
-import { mailtoLink, services, site, whatsappLink } from "@/lib/site";
+import { services, site, whatsappLink } from "@/lib/site";
 
 const initial = {
   name: "",
@@ -17,6 +17,8 @@ const initial = {
 export default function LeadForm() {
   const [form, setForm] = useState(initial);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const update =
     (key: keyof typeof initial) =>
@@ -45,11 +47,47 @@ export default function LeadForm() {
   const formValid = () =>
     Boolean(form.name && form.phone && form.service && form.message);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `New enquiry · ${form.service} · ${form.name}`;
-    window.location.href = mailtoLink(subject, buildBody());
-    setSent(true);
+    if (!formValid() || sending) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${site.email}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New enquiry · ${form.service} · ${form.name}`,
+            _template: "table",
+            _captcha: "false",
+            Name: form.name,
+            Phone: form.phone,
+            Email: form.email || "—",
+            Service: form.service,
+            "Preferred date": form.date || "—",
+            Details: form.message,
+            Source: `${site.name} website`,
+          }),
+        }
+      );
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === "true" || data.success === true)) {
+        setSent(true);
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch {
+      setError(
+        "Couldn't send right now. Please try WhatsApp below, or call us directly."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const sendWhatsApp = () => {
@@ -73,10 +111,10 @@ export default function LeadForm() {
           Thank you, {form.name.split(" ")[0] || "there"}!
         </h3>
         <p className="max-w-sm text-sm text-forest-700/70">
-          Your enquiry is opening in your email app, addressed to{" "}
+          Your enquiry has been sent to{" "}
           <span className="font-semibold text-forest-800">{site.email}</span>.
-          Just hit send and we&apos;ll reply within a few hours. Prefer to
-          talk? Call us at{" "}
+          We&apos;ll get back to you within a few hours. Prefer to talk? Call
+          us at{" "}
           <a
             href={`tel:${site.phoneE164}`}
             className="font-semibold text-forest-600 underline"
@@ -194,9 +232,28 @@ export default function LeadForm() {
         />
       </div>
 
-      <button type="submit" className="btn-primary mt-2 w-full">
-        Send enquiry by email <Send size={16} />
+      <button
+        type="submit"
+        disabled={sending}
+        className="btn-primary mt-2 w-full disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {sending ? (
+          "Sending…"
+        ) : (
+          <>
+            Send enquiry by email <Send size={16} />
+          </>
+        )}
       </button>
+
+      {error && (
+        <p
+          role="alert"
+          className="rounded-xl bg-red-50 px-4 py-3 text-center text-xs font-medium text-red-600"
+        >
+          {error}
+        </p>
+      )}
 
       <div className="flex items-center gap-3">
         <span className="h-px flex-1 bg-forest-100" />
