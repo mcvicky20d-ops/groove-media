@@ -109,7 +109,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="group flex items-center gap-4 rounded-2xl border border-forest-100 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-gold-300 hover:shadow-lg"
                 >
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 text-gold-300 transition-colors group-hover:bg-gold-400 group-hover:text-forest-900">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-900 text-gold-300 transition-colors group-hover:bg-gold-400 group-hover:text-forest-900">
                     <c.icon size={20} />
                   </span>
                   <span>
@@ -125,7 +125,7 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-4 flex items-start gap-4 rounded-2xl border border-forest-100 bg-white p-5">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
                 <MapPin size={20} />
               </span>
               <div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-4 flex items-start gap-4 rounded-2xl border border-forest-100 bg-white p-5">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
                 <Clock size={20} />
               </span>
               <div>

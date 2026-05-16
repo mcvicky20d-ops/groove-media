@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-px relative flex flex-col items-center justify-between gap-3 border-t border-white/10 pb-24 pt-6 text-xs text-cream/50 sm:flex-row sm:py-6">
+      <div className="container-px relative flex flex-col items-center justify-between gap-3 border-t border-white/10 pb-28 pt-6 text-center text-xs text-cream/50 sm:flex-row sm:pb-24 sm:pt-8 sm:text-left">
         <p>
           © {new Date().getFullYear()} {site.legalName}. All rights reserved.
         </p>
