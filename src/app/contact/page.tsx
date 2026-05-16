@@ -112,11 +112,11 @@ export default function ContactPage() {
                   <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-900 text-gold-300 transition-colors group-hover:bg-gold-400 group-hover:text-forest-900">
                     <c.icon size={20} />
                   </span>
-                  <span>
+                  <span className="min-w-0">
                     <span className="block text-xs font-semibold uppercase tracking-wide text-forest-700/60">
                       {c.label}
                     </span>
-                    <span className="block text-sm font-semibold text-forest-900">
+                    <span className="block break-words text-sm font-semibold text-forest-900">
                       {c.value}
                     </span>
                   </span>
