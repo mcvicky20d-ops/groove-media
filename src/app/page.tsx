@@ -105,15 +105,16 @@ export default function HomePage() {
                 </span>
               </Reveal>
             ))}
-            <Reveal
-              delay={0.2}
-              className="flex items-center justify-between rounded-2xl bg-gold-400 p-6 text-forest-900"
-            >
-              <span className="font-display text-lg font-bold">
-                Start a project
-              </span>
-              <Link href="/contact" aria-label="Contact us">
-                <ArrowRight />
+            <Reveal delay={0.2}>
+              <Link
+                href="/contact"
+                aria-label="Start a project — contact us"
+                className="group/cta flex h-full items-center justify-between gap-4 rounded-2xl bg-gold-400 p-6 text-forest-900 shadow-[0_18px_30px_-16px_rgba(240,187,36,0.55)] transition-all duration-300 hover:bg-gold-300 hover:shadow-[0_24px_40px_-16px_rgba(240,187,36,0.7)]"
+              >
+                <span className="font-display text-lg font-bold">
+                  Start a project
+                </span>
+                <ArrowRight className="transition-transform duration-300 group-hover/cta:translate-x-1" />
               </Link>
             </Reveal>
           </div>
