@@ -1,11 +1,15 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import Parallax from "./Parallax";
 import Counter from "./Counter";
 
 type Project = {
@@ -13,7 +17,6 @@ type Project = {
   category: string;
   meta: string;
   image: string;
-  span?: boolean;
 };
 
 const projects: Project[] = [
@@ -22,8 +25,7 @@ const projects: Project[] = [
     category: "Advertising",
     meta: "Retail · Campaign",
     image:
-      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80",
-    span: true,
+      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80",
   },
   {
     title: "Cinematic Wedding",
@@ -51,8 +53,14 @@ const projects: Project[] = [
     category: "Brand Film",
     meta: "Documentary style",
     image:
-      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80",
-    span: true,
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Post & Colour",
+    category: "Post Production",
+    meta: "Edit · Grade · Sound",
+    image:
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -63,16 +71,61 @@ const results = [
   { value: "12", label: "Cities covered" },
 ];
 
+function ProjectCard({ p, i }: { p: Project; i: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  // Image is 130% tall; move it within the overflow-hidden frame only.
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay: (i % 3) * 0.1 }}
+      className="group relative aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-white/10"
+    >
+      <div ref={ref} className="absolute inset-0 overflow-hidden">
+        <motion.div
+          style={{ y }}
+          className="absolute inset-x-0 -top-[15%] h-[130%] will-change-transform"
+        >
+          <Image
+            src={p.image}
+            alt={`${p.title} — ${p.category}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+          />
+        </motion.div>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/25 to-transparent" />
+
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+        <div>
+          <span className="inline-block rounded-full bg-gold-400 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.15em] text-forest-900">
+            {p.category}
+          </span>
+          <h3 className="mt-3 font-display text-xl font-bold text-cream">
+            {p.title}
+          </h3>
+          <p className="text-sm text-cream/60">{p.meta}</p>
+        </div>
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/25 text-cream transition-all duration-300 group-hover:border-gold-300 group-hover:bg-gold-400 group-hover:text-forest-900">
+          <ArrowUpRight size={16} />
+        </span>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function Portfolio() {
   return (
     <section className="relative overflow-hidden bg-forest-900 py-24">
       <div className="grain pointer-events-none absolute inset-0 opacity-40" />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-gold-400/10 blur-3xl"
-        animate={{ scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
-        transition={{ duration: 9, repeat: Infinity }}
-      />
 
       <div className="container-px relative">
         <SectionHeading
@@ -87,7 +140,7 @@ export default function Portfolio() {
           {results.map((r, i) => (
             <motion.div
               key={r.label}
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
@@ -104,53 +157,10 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Project grid with parallax imagery */}
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        {/* Uniform project grid with bounded parallax imagery */}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-              className={`group relative overflow-hidden rounded-3xl ring-1 ring-white/10 ${
-                p.span ? "md:col-span-2" : ""
-              }`}
-            >
-              <div
-                className={`relative ${
-                  p.span ? "aspect-[16/9]" : "aspect-[4/5]"
-                }`}
-              >
-                <Parallax amount={36} className="absolute inset-0">
-                  <div className="relative h-[125%] w-full -translate-y-[10%]">
-                    <Image
-                      src={p.image}
-                      alt={`${p.title} — ${p.category}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-[1.4s] group-hover:scale-105"
-                    />
-                  </div>
-                </Parallax>
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/30 to-transparent" />
-              </div>
-
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-                <div>
-                  <span className="inline-block rounded-full bg-gold-400/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-forest-900">
-                    {p.category}
-                  </span>
-                  <h3 className="mt-3 font-display text-xl font-bold text-cream sm:text-2xl">
-                    {p.title}
-                  </h3>
-                  <p className="text-sm text-cream/60">{p.meta}</p>
-                </div>
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-cream transition-all duration-300 group-hover:border-gold-300 group-hover:bg-gold-400 group-hover:text-forest-900">
-                  <ArrowUpRight size={18} />
-                </span>
-              </div>
-            </motion.article>
+            <ProjectCard key={p.title} p={p} i={i} />
           ))}
         </div>
 
