@@ -132,17 +132,30 @@ export default function ContactPage() {
                 <span className="block text-xs font-semibold uppercase tracking-wide text-forest-700/60">
                   Studio location
                 </span>
-                <span className="block text-sm font-semibold text-forest-900">
+                <span className="block text-sm font-semibold leading-relaxed text-forest-900">
                   {site.address}
                 </span>
-                <a
-                  href={site.social.google}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 inline-block text-xs font-semibold text-gold-600 hover:text-gold-500"
-                >
-                  View on Google →
-                </a>
+                <span className="mt-0.5 block text-xs text-forest-700/60">
+                  Plus Code: {site.plusCode}
+                </span>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${site.geo.lat},${site.geo.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-xs font-semibold text-gold-600 hover:text-gold-500"
+                  >
+                    Get directions →
+                  </a>
+                  <a
+                    href={site.social.google}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-xs font-semibold text-gold-600 hover:text-gold-500"
+                  >
+                    View on Google →
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -163,11 +176,11 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-4 overflow-hidden rounded-2xl border border-forest-100">
+            <div className="mt-4 overflow-hidden rounded-2xl border border-forest-100 shadow-sm">
               <iframe
-                title="The Groove Media location — Chennai"
-                src="https://www.google.com/maps?q=Chennai,Tamil%20Nadu,India&output=embed"
-                className="h-64 w-full"
+                title="The Groove Media — West Mambalam, Chennai"
+                src="https://www.google.com/maps?q=The+Groove+Media,5+Ganapathy+St,Ramakrishnapuram,West+Mambalam,Chennai,Tamil+Nadu+600033&z=16&output=embed"
+                className="h-72 w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

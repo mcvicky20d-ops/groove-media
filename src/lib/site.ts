@@ -23,17 +23,20 @@ export const site = {
   city: "Chennai",
   region: "Tamil Nadu",
   country: "India",
-  // TODO(owner): replace with your studio address
-  address: "Chennai, Tamil Nadu, India",
-  // Approx. Chennai centroid — refine to the exact studio coords when available.
-  geo: { lat: 13.0827, lng: 80.2707 },
+  postalCode: "600033",
+  streetAddress: "5, Ganapathy St, Ramakrishnapuram, West Mambalam",
+  address:
+    "5, Ganapathy St, Ramakrishnapuram, West Mambalam, Chennai, Tamil Nadu 600033",
+  plusCode: "26VF+5R Chennai, Tamil Nadu",
+  // Exact studio coordinates (Google Maps).
+  geo: { lat: 13.042877, lng: 80.224594 },
   openingHours: "Mo-Sa 10:00-20:00",
   priceRange: "₹₹",
   areaServed: ["Chennai", "Tamil Nadu", "Bangalore", "India"],
   social: {
     instagram: "https://www.instagram.com/the.groove.media/",
     instagramHandle: "@the.groove.media",
-    google: "https://share.google/UGDRmrKoFiXsfsqJZ",
+    google: "https://share.google/xuj7iY2eSAauDXB0K",
   },
   rating: {
     value: "5.0",

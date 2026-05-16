@@ -115,7 +115,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-semibold text-gold-300 underline-offset-4 transition-colors hover:text-gold-200 hover:underline"
           >
-            r1digitalsolutions
+            R1 Digital Solutions
           </a>
         </p>
       </div>

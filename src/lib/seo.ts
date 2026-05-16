@@ -89,10 +89,13 @@ export function organizationJsonLd() {
         foundingDate: site.foundingDate,
         address: {
           "@type": "PostalAddress",
+          streetAddress: site.streetAddress,
           addressLocality: site.city,
           addressRegion: site.region,
+          postalCode: site.postalCode,
           addressCountry: "IN",
         },
+        hasMap: site.social.google,
         geo: {
           "@type": "GeoCoordinates",
           latitude: site.geo.lat,
