@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { stats } from "@/lib/site";
+import Counter from "./Counter";
 
 export default function Stats() {
   return (
@@ -18,7 +19,7 @@ export default function Stats() {
             className="card-3d-dark px-4 py-8 text-center"
           >
             <p className="font-display text-3xl font-bold leading-tight text-gold-300 sm:text-4xl lg:text-5xl">
-              {s.value}
+              <Counter value={s.value} />
             </p>
             <p className="mt-2 text-sm text-cream/60">{s.label}</p>
           </motion.div>

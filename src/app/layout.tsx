@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollProgress from "@/components/ScrollProgress";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { organizationJsonLd, SITE_URL } from "@/lib/seo";
@@ -101,6 +102,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
         <JsonLd data={organizationJsonLd()} />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

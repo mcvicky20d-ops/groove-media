@@ -1,24 +1,42 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play, Star } from "lucide-react";
 import { site } from "@/lib/site";
 
 const words = ["brands.", "people.", "ideas.", "campaigns."];
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-forest-900">
+    <section
+      ref={ref}
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-forest-900"
+    >
       {/* Animated cinematic backdrop */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1920&q=80)",
-          }}
-        />
+        <motion.div
+          style={{ y: bgY }}
+          className="absolute inset-x-0 -top-[12%] h-[124%] bg-cover bg-center will-change-transform"
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url(https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1920&q=80)",
+            }}
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/80 via-forest-900/85 to-forest-900" />
         <div className="absolute inset-0 bg-gradient-to-r from-forest-900 via-forest-900/40 to-transparent" />
         <div className="grain absolute inset-0 opacity-50" />
@@ -38,7 +56,10 @@ export default function Hero() {
         transition={{ duration: 10, repeat: Infinity }}
       />
 
-      <div className="container-px relative grid w-full items-center gap-12 pt-28 lg:grid-cols-[1.15fr_0.85fr]">
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="container-px relative grid w-full items-center gap-12 pt-28 will-change-transform lg:grid-cols-[1.15fr_0.85fr]"
+      >
         <div>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -174,7 +195,7 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
         aria-hidden

@@ -12,6 +12,7 @@ import Clients from "@/components/Clients";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
+import Portfolio from "@/components/Portfolio";
 import CTA from "@/components/CTA";
 import Reveal from "@/components/Reveal";
 import { capabilities, services } from "@/lib/site";
@@ -133,6 +134,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Portfolio />
 
       <Process light />
 
